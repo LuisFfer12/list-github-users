@@ -4,7 +4,7 @@ import { Container } from '../../components/Container/index';
 import { HeaderUser, UserAvatar, Repositories } from './styles';
 import { Link } from 'react-router-dom';
 import { parseISO, format } from 'date-fns';
-import { Pagination } from '../Main/styles';
+import { Pagination } from '../../components/Pagination/index';
 
 export default class User extends Component {
   state = {

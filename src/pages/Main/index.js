@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from '../../components/Container/index';
+import { Pagination } from '../../components/Pagination/index';
 import api from '../../services/api';
 import logo from '../../assets/github.svg';
-import { HeaderUsers, GitImage, Users, Pagination } from './styles';
+import { HeaderUsers, GitImage, Users } from './styles';
 
 export default class Main extends Component {
   state = {
