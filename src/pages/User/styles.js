@@ -11,6 +11,15 @@ export const HeaderUser = styled.div`
     font-weight: bold;
   }
 `;
+export const Loading = styled.div`
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
 
 export const HeaderInfo = styled.div`
   flex-direction: column;

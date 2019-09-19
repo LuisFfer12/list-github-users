@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import { Container } from '../../components/Container/index';
-import { HeaderUser, UserAvatar, Repositories } from './styles';
+
 import { Link } from 'react-router-dom';
 import { parseISO, format } from 'date-fns';
+import { Container } from '../../components/Container/index';
 import { Pagination } from '../../components/Pagination/index';
+import { HeaderUser, UserAvatar, Repositories, Loading } from './styles';
 
 export default class User extends Component {
   state = {
@@ -20,7 +21,7 @@ export default class User extends Component {
     const login = decodeURIComponent(match.params.repos);
 
     const [user, repositories] = await Promise.all([
-      await api.get(`/users/${login}`),
+      await api.get(`/users/${login}/details`),
       await api.get(`/users/${login}/repos`, {
         params: {
           page,
@@ -62,7 +63,10 @@ export default class User extends Component {
   }
 
   render() {
-    const { user, repositories, page } = this.state;
+    const { user, repositories, page, loading } = this.state;
+    if (loading) {
+      return <Loading>Carregando...</Loading>;
+    }
     return (
       <Container>
         <HeaderUser>
